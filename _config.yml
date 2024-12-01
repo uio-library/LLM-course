@@ -1,0 +1,45 @@
+#######################################################################################
+# Book settings
+title: Introduction to Large Language Models on Fox
+author: Erik Winge
+logo: images/uio_logo_small.svg
+only_build_toc_files          : true
+
+# Short description about the book
+description: >-
+  Lecture Notes for "Introduction to Large Language Models on Fox"
+
+#######################################################################################
+# Execution settings
+execute:
+  execute_notebooks           : auto
+  allow_errors                : true  # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
+  exclude_patterns:
+    - 'RAG*'
+
+#######################################################################################
+# HTML-specific settings
+html:
+  home_page_in_navbar         : false
+  use_repository_button       : true
+  use_issues_button           : true
+  use_edit_page_button        : true
+
+#######################################################################################
+# Launch button settings
+repository:
+  url                         : https://github.com/UiO-CELL/programming-for-lawyers
+  #path_to_book                : "mini_book"
+
+launch_buttons:
+  notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  #binderhub_url               : "https://mybinder.org"
+  binderhub_url               : ""
+  #jupyterhub_url              : "https://hub2.jupyterhub.uio.no" # hub2 is for testing
+  #jupyterhub_url              : "https://jupyterhub.uio.no"
+  colab_url                   : "https://colab.research.google.com"
+
+# latex:
+#   latex_engine                : "xelatex"
+#   latex_documents:
+#     targetname: book.tex

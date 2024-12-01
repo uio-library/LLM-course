@@ -1,0 +1,5 @@
+title: Large Language Models on Fox
+format: jb-book
+root: index
+chapters:
+- file: 01_basics
