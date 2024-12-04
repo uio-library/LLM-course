@@ -1,5 +1,7 @@
 _build
 .virtual_documents
+summaries.txt
+total_summary.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
