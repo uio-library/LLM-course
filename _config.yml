@@ -28,7 +28,7 @@ html:
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://github.com/UiO-CELL/programming-for-lawyers
+  url                         : https://github.com/uio-library/LLM-course
   #path_to_book                : "mini_book"
 
 launch_buttons:
