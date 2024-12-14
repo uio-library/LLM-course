@@ -2,6 +2,7 @@ title: Large Language Models on Fox
 format: jb-book
 root: index
 chapters:
+- file: 0_login
 - file: 1_installing
 - file: 2_chatbot
 - file: 3_summarizing
