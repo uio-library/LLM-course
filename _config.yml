@@ -2,6 +2,7 @@
 # Book settings
 title: Introduction to Large Language Models on Fox
 author: Erik Winge
+copyright: "2025"  # Copyright year to be placed in the footer
 logo: images/uio_logo_small.svg
 only_build_toc_files          : true
 
