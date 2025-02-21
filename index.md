@@ -2,6 +2,11 @@
 
 This is an introductory course on running Large Language Models (LLMs) on the
 UiO [High-Performance Computer Fox](https://www.uio.no/english/services/it/research/hpc/fox/).
+LLMs, like ChatGPT, are trained to generate word sequences based on a context, i.e. continue word sequences.
+For instance, if we have the start of a sentence "The chicken crossed the road to get", some possible completions are "to the other side" or "food".
+To learn more about how LLMs are trained, we recommend the videos
+[Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) and
+[Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) by Andrej Karpathy.
 
 In this course, we use Python programming to run LLMs.
 Therefore, the course requires basic programming skills.
