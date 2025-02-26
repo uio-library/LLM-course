@@ -1,3 +1,4 @@
+*.txt
 _build
 .virtual_documents
 summaries.txt
