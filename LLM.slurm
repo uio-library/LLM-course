@@ -9,9 +9,8 @@
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --output=/fp/projects01/ec443/ewinge/logs/slurm-%j.out
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=ewinge@uio.no
+#SBATCH --mail-user=
 
 # Load necessary modules and activate environment
 #module list
