@@ -13,10 +13,12 @@
 #SBATCH --mail-user=
 
 # Load necessary modules and activate environment
-#module list
+module list
 module purge
 module load Python/3.11.5-GCCcore-13.2.0 Python-bundle-PyPI/2023.10-GCCcore-13.2.0
 module load PyYAML/6.0.1-GCCcore-13.2.0
+#module load IPython/8.17.2-GCCcore-13.2.0
+module load lxml/4.9.3-GCCcore-13.2.0
 
 module list
 
