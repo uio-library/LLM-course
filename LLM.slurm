@@ -9,8 +9,6 @@
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=
 
 # Load necessary modules and activate environment
 module list
