@@ -39,9 +39,11 @@ def parse_arguments():
         description='Summarize text files in the folder')
     parser.add_argument('input', help='Folder containing text files')
     parser.add_argument('--output', default='summaries.txt',
-                        help='Output file to save the summaries')
+                        help='Where to save the summaries. If a directory is given, each summary will be saved to a separate file in the directory.')
     parser.add_argument('--model', default='meta-llama/Llama-3.2-3B-Instruct',
                         help='Model to use for summarization')
+    parser.add_argument('-v', '--verbose',
+                        action='store_true', help='Verbose mode')
     return parser.parse_args()
 
 
@@ -75,6 +77,11 @@ def main():
     # parse command-line arguments
     args = parse_arguments()
 
+    if args.verbose:
+        print('Input folder:', args.input)
+        print('Output folder or file:', args.output)
+        print('Model:', args.model)
+
     # load the model
     model = load_model(args.model)
 
@@ -105,11 +112,20 @@ def main():
         print(summary)
 
     # Saving the Summaries to a Text File
-    with open(args.output, 'w') as outfile:
+    # check if output is a directory
+    if os.path.isdir(args.output):
+        # save each summary to a separate file in the output directory
         for filename in summaries:
-            print('Summary of ', filename, file=outfile)
-            print(summaries[filename], file=outfile)
-            print(file=outfile)
+            with open(filename + '-summary.txt', 'w') as outfile:
+                print('Summary of ', filename, file=outfile)
+                print(summaries[filename], file=outfile)
+    else:
+        # save all summaries to a single file
+        with open(args.output, 'w') as outfile:
+            for filename in summaries:
+                print('Summary of ', filename, file=outfile)
+                print(summaries[filename], file=outfile)
+                print(file=outfile)
 
 
 if __name__ == '__main__':
