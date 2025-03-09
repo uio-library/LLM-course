@@ -68,7 +68,7 @@ def make_prompt(separator):
     return prompt
 
 
-if __name__ == '__main__':
+def main():
     # Set the cache directory for HuggingFace models
     os.environ['HF_HOME'] = '/fp/projects01/ec443/huggingface/cache/'
 
@@ -110,3 +110,7 @@ if __name__ == '__main__':
             print('Summary of ', filename, file=outfile)
             print(summaries[filename], file=outfile)
             print(file=outfile)
+
+
+if __name__ == '__main__':
+    main()
