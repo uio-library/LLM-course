@@ -53,6 +53,21 @@ def load_documents(input_folder):
     return documents
 
 
+def make_prompt(separator):
+    '''
+    Create a prompt template to summarize the input text.
+    The prompt template has a variable 'context' that will be replaced
+    with the input text.
+    '''
+    prompt_template = '''Write a summary of the following:
+    {context}
+    ''' + separator
+    prompt = PromptTemplate(template=prompt_template,
+                            input_variables=['context'])
+
+    return prompt
+
+
 if __name__ == '__main__':
     # Set the cache directory for HuggingFace models
     os.environ['HF_HOME'] = '/fp/projects01/ec443/huggingface/cache/'
@@ -63,13 +78,9 @@ if __name__ == '__main__':
     # load the model
     model = load_model(args.model)
 
+    # the separator is used to separate the input text from the summary
     separator = '\nYour Summary:\n'
-    prompt_template = '''Write a summary of the following:
-
-    {context}
-    ''' + separator
-    prompt = PromptTemplate(template=prompt_template,
-                            input_variables=['context'])
+    prompt = make_prompt(separator)
 
     # Define the regex pattern to extract the summary
     output_parser = RegexParser(
