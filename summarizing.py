@@ -116,7 +116,12 @@ def main():
     if os.path.isdir(args.output):
         # save each summary to a separate file in the output directory
         for filename in summaries:
-            with open(filename + '-summary.txt', 'w') as outfile:
+            # get the file name without the directory
+            basename = os.path.basename(filename)
+            name = os.path.join(args.output, basename + '-summary.txt')
+            if args.verbose:
+                print('Saving summary to', name)
+            with open(name, 'w') as outfile:
                 print('Summary of ', filename, file=outfile)
                 print(summaries[filename], file=outfile)
     else:
