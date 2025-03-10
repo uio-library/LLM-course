@@ -99,38 +99,33 @@ def main():
     # Loading the Documents
     documents = load_documents(args.input)
 
-    # Creating the Summaries
-    summaries = {}
-
-    for document in documents:
-        filename = document.metadata['source']
-        print('Summarizing document:', filename)
-        result = chain.invoke({"context": [document]})
-        summary = result['summary']
-        summaries[filename] = summary
-        print('Summary of file', filename)
-        print(summary)
-
-    # Saving the Summaries to a Text File
     # check if output is a directory
     if os.path.isdir(args.output):
         # save each summary to a separate file in the output directory
-        for filename in summaries:
+        for document in documents:
             # get the file name without the directory
+            filename = document.metadata['source']
             basename = os.path.basename(filename)
             name = os.path.join(args.output, basename + '-summary.txt')
-            if args.verbose:
-                print('Saving summary to', name)
+            summary = make_summary(chain, document)
             with open(name, 'w') as outfile:
-                print('Summary of ', filename, file=outfile)
-                print(summaries[filename], file=outfile)
+                print(summary, file=outfile)
     else:
-        # save all summaries to a single file
+        # output is not a directory, save the summary to a single file
         with open(args.output, 'w') as outfile:
-            for filename in summaries:
-                print('Summary of ', filename, file=outfile)
-                print(summaries[filename], file=outfile)
-                print(file=outfile)
+            summary = ''
+            for document in documents:
+                summary += make_summary(chain, document)
+            print(summary, file=outfile)
+
+
+def make_summary(chain, document):
+    filename = document.metadata['source']
+    print('Summarizing document:', filename)
+    result = chain.invoke({"context": [document]})
+    summary = result['summary']
+    output = f'Summary of {filename}:\n{summary}\n'
+    return output
 
 
 if __name__ == '__main__':
