@@ -3,7 +3,7 @@
 #SBATCH --account=ec443
 #SBATCH --nodes=1
 #SBATCH --partition=accel
-#SBATCH --gpus=1
+#SBATCH --gpus=a100:1
 #SBATCH --mem=100G
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1
