@@ -4,8 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --partition=accel
 #SBATCH --gpus=1
-##SBATCH --mem-per-gpu=20G
-#SBATCH --mem=64G
+#SBATCH --mem=100G
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
