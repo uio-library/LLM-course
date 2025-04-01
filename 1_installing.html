@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installing Software &#8212; Introduction to Large Language Models on Fox</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_installing';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Querying LLMs (Chatbots)" href="2_chatbot.html" />
+    <link rel="prev" title="Getting Started" href="0_login.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Large Language Models on Fox - Home"/>
+    <script>document.write(`<img src="_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Large Language Models on Fox - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_login.html">Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_chatbot.html">Querying LLMs (Chatbots)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_summarizing.html">Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_RAG.html">Retrieval-Augmented Generation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/uio-library/LLM-course/blob/master/1_installing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uio-library/LLM-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uio-library/LLM-course/edit/master/1_installing.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uio-library/LLM-course/issues/new?title=Issue%20on%20page%20%2F1_installing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_installing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installing Software</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages">Python Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-llm-software">General LLM Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-for-reading-text-documents">Software for Reading Text Documents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-index">Search Index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-language-model">The Language Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-location">Model Location</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-virtual-environments">Bonus: Virtual Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-virtual-environment">Creating a virtual environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-the-environment">Activating the environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-kernel-for-the-environment">JupyterLab kernel for the environment</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-software">
+<h1>Installing Software<a class="headerlink" href="#installing-software" title="Link to this heading">#</a></h1>
+<p>We’ll use <a class="reference external" href="https://www.langchain.com/">LangChain</a>, an open-source library for making applications with LLMs.
+We’ll use models from <a class="reference external" href="https://huggingface.co/">HuggingFace</a>, a website that has tools and models for machine learning.</p>
+<div class="tip admonition">
+<p class="admonition-title">Exercise: Create new notebook</p>
+<p>Create a new Jupyter Notebook called <code class="docutils literal notranslate"><span class="pre">installing</span></code> by clicking the <em>File</em>-menu in JupyterLab, and then <em>New</em> and <em>Notebook</em>.
+If you are asked to select a kernel, choose <em>“Python 3”</em>.
+Give the new notebook a name by clicking the <em>File</em>-menu in JupyterLab and then clicking <em>Rename Notebook</em>.
+Use the name <code class="docutils literal notranslate"><span class="pre">installing</span></code>.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Virtual Environments</p>
+<p>If you usually work with
+<a class="reference external" href="https://docs.python.org/3/library/venv.html">virtual environments</a>
+on Fox, you should setup and activate a virtual environment before you continue, see <a class="reference internal" href="#venv"><span class="std std-ref">Bonus: Virtual Environments</span></a>.
+If you haven’t heard of virtual environments, you can continue without using virtual environments.</p>
+</div>
+<section id="python-packages">
+<h2>Python Packages<a class="headerlink" href="#python-packages" title="Link to this heading">#</a></h2>
+<p>We will use the python package manager <code class="docutils literal notranslate"><span class="pre">pip</span></code> for installing software.
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> installs software from the <a class="reference external" href="https://pypi.org/">Python Package Index</a>.
+First, we update <code class="docutils literal notranslate"><span class="pre">pip</span></code> to the newest version:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="general-llm-software">
+<h2>General LLM Software<a class="headerlink" href="#general-llm-software" title="Link to this heading">#</a></h2>
+<p>We will install LangChain and HuggingFace software first.
+We use <code class="docutils literal notranslate"><span class="pre">huggingface-hub</span></code> to automatically download models when required.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">huggingface</span><span class="o">-</span><span class="n">hub</span> <span class="n">httpx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need several packages for working with LangChain and HuggingFace.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">langchain</span> <span class="n">langchain</span><span class="o">-</span><span class="n">community</span> <span class="n">langchain</span><span class="o">-</span><span class="n">huggingface</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transformers is the basic technology used in large language models,
+so we install the library <code class="docutils literal notranslate"><span class="pre">sentence-transformers</span></code>.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">sentence</span><span class="o">-</span><span class="n">transformers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some models use the <code class="docutils literal notranslate"><span class="pre">sentencepiece</span></code> library, so we will install that as well.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">sentencepiece</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="software-for-reading-text-documents">
+<h2>Software for Reading Text Documents<a class="headerlink" href="#software-for-reading-text-documents" title="Link to this heading">#</a></h2>
+<p>We will use <a class="reference external" href="https://unstructured.io/">unstructured</a> for reading documents. Unstructured supports different document formats, like PDFs, Word files and plain text documents.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">unstructured</span><span class="p">[</span><span class="nb">all</span><span class="o">-</span><span class="n">docs</span><span class="p">]</span> <span class="n">langchain</span><span class="o">-</span><span class="n">unstructured</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="search-index">
+<h2>Search Index<a class="headerlink" href="#search-index" title="Link to this heading">#</a></h2>
+<p>For the <a class="reference internal" href="4_RAG.html#rag"><span class="std std-ref">RAG chapter</span></a> we will use <a class="reference external" href="https://faiss.ai/">FAISS</a> to search for documents.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">faiss</span><span class="o">-</span><span class="n">cpu</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-language-model">
+<h2>The Language Model<a class="headerlink" href="#the-language-model" title="Link to this heading">#</a></h2>
+<p>We’ll use models from <a class="reference external" href="https://huggingface.co/">HuggingFace</a>, a website that has tools and models for machine learning.
+Many models are suitable to use with a single GPU.
+We can use the open-weights models
+<a class="reference external" href="https://huggingface.co/mistralai/Ministral-8B-Instruct-2410">mistralai/Ministral-8B-Instruct-2410</a>
+or
+<a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct">meta-llama/Llama-3.2-3B-Instruct</a>
+for our tasks.</p>
+<p>Ministral-8B-Instruct-2410 has 8 billion parameters.
+For comparison, one of the largest LLMs at the time of writing is Llama 3.1, with 405 billion parameters.
+Still, Ministral-8B-Instruct-2410 is around 16 GB, which makes it a quite large model.
+To run it, we must have a GPU with at least 20 GB memory.
+However, we must also have some GPU memory free for processing data.
+Therefore, practical use of Ministral-8B-Instruct-2410 might require a GPU with 40 GB memory.</p>
+<p>The models can also be run without a GPU, but that will be much slower.</p>
+<section id="model-location">
+<h3>Model Location<a class="headerlink" href="#model-location" title="Link to this heading">#</a></h3>
+<p>We should tell the HuggingFace library where to store its data.
+If you’re running on Educloud/Fox project ec443 the model is stored at the path below.
+If you’re running on your own computer, you probably don’t need to specify the model location.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HF_HOME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/fp/projects01/ec443/huggingface/cache/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-optional admonition">
+<p class="admonition-title">Optional</p>
+<p>If you’re running one of the models that is <em>already downloaded</em> Educloud/Fox project ec443 the model, you can skip this step.
+If you’re not running on Educloud/Fox project ec443 or want to use a model that isn’t already downloaded, you’ll need to download the model.</p>
+<p>You will need a <em>User Access Token</em> from HuggingFace.
+If you don’t already have  a user account on HuggingFace, you must first sign up for one.
+Click the button  “Sign Up”  in the upper right corner on
+<a class="reference external" href="https://huggingface.co/">HuggingFace</a>.</p>
+<p>When you have logged in to HuggingFace with your user account,
+you can create a
+<a class="reference external" href="https://huggingface.co/settings/tokens">User Access Token</a>
+giving <em>read</em> access
+by following this <a class="reference external" href="https://huggingface.co/docs/hub/en/security-tokens">guide</a>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from huggingface_hub import login
+login()
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="bonus-virtual-environments">
+<span id="venv"></span><h2>Bonus: Virtual Environments<a class="headerlink" href="#bonus-virtual-environments" title="Link to this heading">#</a></h2>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">pip</span></code> command installs Python modules or libraries in your user profile, in your <em>default</em> Python environment.
+If you use Python for different projects with different libraries, it might happen that your projects require different versions of <em>the same</em> library.
+Python supports switching between different versions of <em>the same</em> library with <em>virtual environments</em>.
+You can create a virtual environment for each of your projects.
+Then, you install all the libraries related to a particular project in the virtual environment for that project.
+The virtual environment is often stored in the project folder in a folder called <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.</p>
+<section id="creating-a-virtual-environment">
+<h3>Creating a virtual environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading">#</a></h3>
+<p>Let’s create a virtual environment for running large language models.
+There are several ways of doing this, but we recommend using python’s built-in <code class="docutils literal notranslate"><span class="pre">venv</span></code> command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="activating-the-environment">
+<h3>Activating the environment<a class="headerlink" href="#activating-the-environment" title="Link to this heading">#</a></h3>
+<p>To <em>activate</em> the virtual environment on the command prompt you can use an activation script:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>source .venv/bin/activate
+</pre></div>
+</div>
+</section>
+<section id="jupyterlab-kernel-for-the-environment">
+<h3>JupyterLab kernel for the environment<a class="headerlink" href="#jupyterlab-kernel-for-the-environment" title="Link to this heading">#</a></h3>
+<p>To use the virtual environment in JupyterLab, we must define a <em>kernel</em> for that environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>.venv/bin/python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>LLM<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;Python (LLM)&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "llm"
+        },
+        kernelOptions: {
+            name: "llm",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'llm'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0_login.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_chatbot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Querying LLMs (Chatbots)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages">Python Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-llm-software">General LLM Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-for-reading-text-documents">Software for Reading Text Documents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-index">Search Index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-language-model">The Language Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-location">Model Location</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-virtual-environments">Bonus: Virtual Environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-virtual-environment">Creating a virtual environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-the-environment">Activating the environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-kernel-for-the-environment">JupyterLab kernel for the environment</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
