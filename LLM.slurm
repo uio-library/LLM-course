@@ -14,7 +14,7 @@ module list
 module purge
 module load Python/3.12.3-GCCcore-13.3.0 Python-bundle-PyPI/2024.06-GCCcore-13.3.0
 module load PyYAML/6.0.2-GCCcore-13.3.0
-#module load IPython/8.28.0-GCCcore-13.3.0
+module load IPython/8.28.0-GCCcore-13.3.0 JupyterLab/4.2.5-GCCcore-13.3.0
 module load lxml/5.3.0-GCCcore-13.3.0
 
 module list
