@@ -40,7 +40,7 @@ def parse_arguments():
     parser.add_argument('input', help='Folder containing text files')
     parser.add_argument('--output', default='summaries.txt',
                         help='Where to save the summaries. If a directory is given, each summary will be saved to a separate file in the directory.')
-    parser.add_argument('--model', default='meta-llama/Llama-3.2-3B-Instruct',
+    parser.add_argument('--model', default='google/gemma-3-4b-it',
                         help='Model to use for summarization')
     parser.add_argument('-v', '--verbose',
                         action='store_true', help='Verbose mode')
